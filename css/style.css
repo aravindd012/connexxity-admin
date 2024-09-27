@@ -1,0 +1,32 @@
+.container{
+    max-width: 1280px;
+}
+#tenderSpec .card .card-body b{
+    font-weight: 500;
+}
+.modal-backdrop {
+    z-index: 1040; /* Default Bootstrap backdrop z-index */
+}
+
+.modal {
+    z-index: 1050; /* Default Bootstrap modal z-index */
+}
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .modal {
+        /* Styles to handle iOS-specific issues */
+        -webkit-backdrop-filter: none; /* Disable backdrop filter for Safari */
+        backdrop-filter: none; /* Disable backdrop filter for other browsers */
+    }
+}
+.modal.show {
+    opacity: 1 !important;
+}
+.modal-backdrop.show {
+    opacity: 0.5; /* Adjust opacity to ensure modal content is visible */
+}
+.modal-header .btn-close {
+    z-index: 1060; /* Ensure close button is above modal content */
+}
+.dropdown-item{
+    cursor: pointer;
+}
