@@ -59,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo "Details saved successfully.";
         header("Location: addClients.php?success=1");
         exit();
-
     } catch (PDOException $e) {
         // Handle any errors
         echo "Error: " . $e->getMessage();
@@ -68,4 +67,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle invalid request
     echo "Invalid request method.";
 }
-?>

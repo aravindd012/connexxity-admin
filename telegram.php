@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Telegram bot details
     // $botToken = '7120897959:AAHvDIqtNLaNv86SImRczy6gP1z4HLXIWJQ'; // Replace with your bot's API token
-	$botToken =  '7120897959:AAHvDIqtNLaNv86SImRczy6gP1z4HLXIWJQ';
+    $botToken =  '7120897959:AAHvDIqtNLaNv86SImRczy6gP1z4HLXIWJQ';
     $chatId = '1419799565'; // Replace with your chat ID 1137896026
 
     // Prepare message
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send message to Telegram
     $sendMessageUrl = "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=" . urlencode($message);
-    
+
     // Execute the request
     file_get_contents($sendMessageUrl);
 
