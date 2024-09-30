@@ -4,11 +4,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
 
     // Telegram bot details
-    $botToken = ''; // Replace with your bot's API token
+    // $botToken = '7120897959:AAHvDIqtNLaNv86SImRczy6gP1z4HLXIWJQ'; // Replace with your bot's API token
+    $botToken =  '7120897959:AAHvDIqtNLaNv86SImRczy6gP1z4HLXIWJQ';
     $chatId = '1419799565'; // Replace with your chat ID 1137896026
 
     // Prepare message
     $message = "Name: $name\nEmail: $email";
+
     // Send message to Telegram
     $sendMessageUrl = "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=" . urlencode($message);
 

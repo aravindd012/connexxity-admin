@@ -21,7 +21,7 @@
         <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
             <div class="alert alert-success">All emails have been sent Successfully!</div>
         <?php endif; ?>
-        <div class="card shadow my-3">
+        <div class="card shadow my-3 w-50 m-auto">
             <div class="card-header">
                 <h3 class="text-center">Send Bulk Emails</h3>
             </div>
@@ -29,18 +29,21 @@
                 <form action="send-email.php" method="POST">
                     <div class="form-group mt-3">
                         <label for="emails">Enter Email Addresses (comma-separated):</label>
-                        <!-- <textarea class="form-control" id="emails" name="emails" oninput="autoSize(this)" rows="2" required></textarea> -->
-                        <input type="text" class="form-control" id="emails" name="emails" required>
+                        <input type="text" class="form-control" id="emails" name="emails" placeholder="Enter Reciptent address" required>
                     </div>
 
                     <div class="form-group mt-3">
                         <label for="subject">Email Subject:</label>
-                        <input type="text" class="form-control" id="subject" name="subject" required>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Email subject" required>
                     </div>
 
                     <div class="form-group mt-3">
                         <label for="message">Email Message:</label>
-                        <textarea class="form-control" id="message" name="message" oninput="autoSize(this)" rows="4" required></textarea>
+                        <textarea class="form-control" id="message" name="message" oninput="autoSize(this)" rows="4" placeholder="Enter Email Message" required></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="link">Full URL Link Subject: (optional)</label>
+                        <input type="url" class="form-control" id="link" name="link" placeholder="https://www.example.com/">
                     </div>
 
                     <button type="submit" class="btn btn-primary my-2">Send Emails</button>

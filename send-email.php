@@ -22,6 +22,7 @@
             $emails = json_decode($_POST['emails'], true);
             $subject = $_POST['subject'];
             $message = $_POST['message'];
+            $link = $_POST['link'];
 
             // Lock the process to handle concurrent submissions
             $lockFile = fopen('lockfile.txt', 'w');
@@ -47,6 +48,7 @@
                         $template = file_get_contents('email-temp/invite-template.html');
                         // Replace placeholders
                         $template = str_replace('{{message}}', $message, $template);
+                        $template = str_replace('{{link}}', $link, $template);
                         $mail->isHTML(true);
                         $mail->Subject = $subject;
                         $mail->Body = $template;
