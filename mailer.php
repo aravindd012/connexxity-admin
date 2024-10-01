@@ -22,8 +22,9 @@
             <div class="alert alert-success">All emails have been sent Successfully!</div>
         <?php endif; ?>
         <div class="card shadow my-3 w-50 m-auto">
-            <div class="card-header">
-                <h3 class="text-center">Send Bulk Emails</h3>
+            <div class="card-header d-flex justify-content-between">
+                <h3>Send Bulk Emails</h3>
+                <a href="dbMailer.php" class="btn btn-dark">All Clients -></a>
             </div>
             <div class="card-body">
                 <form action="send-email.php" method="POST">
