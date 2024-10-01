@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-4">
         <?php
-
+        ob_start();  // Start output buffering
         use PHPMailer\PHPMailer\PHPMailer;
         use PHPMailer\PHPMailer\Exception;
 
@@ -43,6 +43,7 @@
 
                     foreach ($emails as $emailObj) {
                         $email = $emailObj['value'];  // Get each email from the Tagify object
+                        echo $email;
                         $mail->addAddress($email);
                         // Load the HTML template
                         $template = file_get_contents('email-temp/invite-template.html');
@@ -53,17 +54,17 @@
                         $mail->Subject = $subject;
                         $mail->Body = $template;
 
-                        $mail->send();
+                        //$mail->send();
                         $mail->clearAddresses();
                     }
 
-                    echo '<div class="alert alert-success">All emails have been sent successfully</div> <a href="mailer.php" class="btn btn-dark">Back to Form</a>';
+                    //echo '<div class="alert alert-success">All emails have been sent successfully</div> <a href="mailer.php" class="btn btn-dark">Back to Form</a>';
                     // Redirect to the same page with a success message
+
                     flock($lockFile, LOCK_UN);  // Release the lock
                     fclose($lockFile);
-                    header('Location: mailer.php?success=1');  // Redirect to the form with a success parameter
+                    header("Location:mailer.php?success=1");  // Redirect to the form with a success parameter
                     exit;  // Terminate the script
-
                 } catch (Exception $e) {
                     flock($lockFile, LOCK_UN);  // Release the lock in case of an error
                     fclose($lockFile);
@@ -79,6 +80,7 @@
         } else {
             echo "<div class='alert alert-danger'>Invalid request </div><a href='mailer.php' class='btn btn-dark'>Back to Form</a>";
         }
+        ob_end_flush();  // Flush the output buffer
         ?>
     </div>
 </body>
